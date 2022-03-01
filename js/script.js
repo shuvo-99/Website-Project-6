@@ -45,13 +45,30 @@ const displayPhoneDetail = (phone) => {
   const phoneDetails = document.getElementById("phone-details");
   const div = document.createElement("div");
   div.classList.add("card");
+  // const features = JSON.stringify(phone.mainFeatures);
   div.innerHTML = `
   <img src="${phone.image}" class="card-img-top" alt="..." />
   <div class="card-body">
-    <h5 class="card-title">${phone.brand}</h5>
-    <p class="card-text"> ${phone.mainFeatures}
+    <h5 class="card-title">${phone.name}</h5>
+    <p class="card-text"> span${phone.brand}
     </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    
+    <p class="card-text"> Storage: ${phone.mainFeatures.storage}
+    </p>
+    <p class="card-text"> Display Size: ${phone.mainFeatures.displaySize}
+    </p>
+    <p class="card-text"> Chipset: ${phone.mainFeatures.chipSet}
+    </p>
+    <p class="card-text"> memory: ${phone.mainFeatures.memory}
+    </p>
+    ${if (phone.releaseDate == ''){
+
+    }
+    else{}}
+
+    <p class="card-text"> releaseDate: ${phone.releaseDate}
+    </p>
+    
   </div>
   `;
   phoneDetails.appendChild(div);
