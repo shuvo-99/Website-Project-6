@@ -86,7 +86,6 @@ const displaySearchResult = (data) => {
 const loadPhoneDetail = (phoneID) => {
   // console.log(phoneID);
   const url = `https://openapi.programming-hero.com/api/phone/${phoneID}
-
   `;
   fetch(url)
     .then((res) => res.json())
