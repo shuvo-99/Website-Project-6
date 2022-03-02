@@ -1,0 +1,33 @@
+.bg-color {
+  background-color: rgb(255, 255, 255);
+}
+
+.notify {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 0 auto;
+  background: #a0dfff;
+  margin-top: 20px;
+  border-radius: 15px;
+  padding: 5px 20px;
+  display: none;
+}
+.notify-section {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.light-bold {
+  font-weight: 650;
+}
+
+.font-size-phn-name {
+  font-size: xx-large;
+}
+.font-size-brand {
+  font-size: x-large;
+}

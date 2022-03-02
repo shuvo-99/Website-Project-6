@@ -49,27 +49,61 @@ const displayPhoneDetail = (phone) => {
   div.innerHTML = `
   <img src="${phone.image}" class="card-img-top" alt="..." />
   <div class="card-body">
-    <h5 class="card-title">${phone.name}</h5>
-    <p class="card-text"> span${phone.brand}
-    </p>
-    
-    <p class="card-text"> Storage: ${phone.mainFeatures.storage}
-    </p>
-    <p class="card-text"> Display Size: ${phone.mainFeatures.displaySize}
-    </p>
-    <p class="card-text"> Chipset: ${phone.mainFeatures.chipSet}
-    </p>
-    <p class="card-text"> memory: ${phone.mainFeatures.memory}
-    </p>
-    ${if (phone.releaseDate == ''){
-
+    <h5 class="card-title font-size-phn-name">${phone.name}</h5>
+    <p class="card-text bold font-size-brand">${phone.brand}
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>Storage: </span>${
+      phone.mainFeatures.storage
     }
-    else{}}
-
-    <p class="card-text"> releaseDate: ${phone.releaseDate}
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>Display Size: </span>${
+      phone.mainFeatures.displaySize
+    }
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>Chipset: </span>${
+      phone.mainFeatures.chipSet
+    }
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>Memory: </span>${
+      phone.mainFeatures.memory
+    }
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>Release Date: </span>${
+      phone.releaseDate ? phone.releaseDate : "Will be released soon"
+    }
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>Sensors: </span>${
+      phone.mainFeatures.sensors
+    }
+    </p><hr>
+    <p class="card-text fs-bold"> <span class='light-bold'>Others: </span>
     </p>
-    
-  </div>
+    <p class="card-text"> <span class='light-bold'>WLAN: </span>${
+      phone.others.WLAN ? phone.others.WLAN : "Data not found"
+    }
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>Bluetooth: </span>${
+      phone.others.Bluetooth ? phone.others.Bluetooth : "Data not found"
+    }
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>GPS: </span>${
+      phone.others.GPS ? phone.others.GPS : "Data not found"
+    }
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>NFC: </span>${
+      phone.others.NFC ? phone.others.NFC : "Data not found"
+    }
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>Radio: </span>${
+      phone.others.Radio ? phone.others.Radio : "Data not found"
+    }
+    </p><hr>
+    <p class="card-text"> <span class='light-bold'>USB: </span>${
+      phone.others.USB ? phone.others.USB : "Data not found"
+    }
+    </p>
+         
+    </div>
   `;
   phoneDetails.appendChild(div);
 };
