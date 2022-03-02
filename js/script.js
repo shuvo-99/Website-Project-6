@@ -28,23 +28,59 @@ const searchPhone = () => {
 
 const displaySearchResult = (data) => {
   const searchResult = document.getElementById("search-result");
-  data.forEach((phone) => {
-    // console.log(dat);
-    const div = document.createElement("div");
-    div.classList.add("col");
-    div.innerHTML = `
-    <div onclick='loadPhoneDetail("${phone.slug}")' class="card h-100">
-      <img src="${phone.image}" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">${phone.phone_name}</h5>
-        <p class="card-text">
-        ${phone.brand}
-        </p>
+  searchResult.textContent = "";
+
+  if (data.length == 0) {
+    // show error
+    const showError1 = document.getElementById("input-empty");
+    showError1.style.display = "none";
+    const showError2 = document.getElementById("phn-not-found");
+    showError2.style.display = "block";
+  } else {
+    // hide error
+    const showError2 = document.getElementById("phn-not-found");
+    showError2.style.display = "none";
+    const showError1 = document.getElementById("input-empty");
+    showError1.style.display = "none";
+
+    data.forEach((phone) => {
+      // console.log(dat);
+      const div = document.createElement("div");
+      div.classList.add("col");
+      div.innerHTML = `
+      <div  class="card h-100 w-75">
+        <img src="${phone.image}" class="card-img-top" alt="..." />
+        <div class="card-body ">
+          <h5 class="card-title">${phone.phone_name}</h5>
+          <p class="card-text">
+          ${phone.brand}
+          </p>
+          <a href="#" onclick='loadPhoneDetail("${phone.slug}")' class="btn btn-primary">Details</a>
+        </div>
       </div>
-    </div>
-    `;
-    searchResult.appendChild(div);
-  });
+      `;
+      searchResult.appendChild(div);
+    });
+  }
+  // data.forEach((phone) => {
+
+  //   // console.log(dat);
+  //   const div = document.createElement("div");
+  //   div.classList.add("col");
+  //   div.innerHTML = `
+  //   <div  class="card h-100 w-75">
+  //     <img src="${phone.image}" class="card-img-top" alt="..." />
+  //     <div class="card-body ">
+  //       <h5 class="card-title">${phone.phone_name}</h5>
+  //       <p class="card-text">
+  //       ${phone.brand}
+  //       </p>
+  //       <a href="#" onclick='loadPhoneDetail("${phone.slug}")' class="btn btn-primary">Details</a>
+  //     </div>
+  //   </div>
+  //   `;
+  //   searchResult.appendChild(div);
+  // });
 };
 
 const loadPhoneDetail = (phoneID) => {
