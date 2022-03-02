@@ -1,12 +1,29 @@
 const searchPhone = () => {
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
-  // console.log("yes");
+
+  // clear data
   searchField.value = "";
-  const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((info) => displaySearchResult(info.data));
+  const phoneDetails = document.getElementById("phone-details");
+  phoneDetails.textContent = "";
+
+  // if search input is empty
+  if (searchText == "") {
+    const showError1 = document.getElementById("input-empty");
+    showError1.style.display = "block";
+    const showError2 = document.getElementById("phn-not-found");
+    showError2.style.display = "none";
+    const searchResult = document.getElementById("search-result");
+    searchResult.textContent = "";
+  } else {
+    // load data
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((info) => displaySearchResult(info.data.slice(0, 20)));
+
+    // showError.style.display = "none";
+  }
 };
 
 const displaySearchResult = (data) => {
